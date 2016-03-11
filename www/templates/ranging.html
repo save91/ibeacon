@@ -1,0 +1,32 @@
+<ion-view view-title="Ranging">
+  <ion-content>
+    <button data-ng-click="startRangingBeaconsInRegion()" class="button button-block button-calm">
+      startRangingBeaconsInRegion
+    </button>
+    <button data-ng-click="stopRangingBeaconsInRegion()" class="button button-block button-balanced">
+      stopRangingBeaconsInRegion
+    </button>
+    <button data-ng-click="getRangedRegions()" class="button button-block button-energized">
+      getRangedRegions
+    </button>
+    <button data-ng-click="isRangingAvailable()" class="button button-block button-assertive">
+      isRangingAvailable
+    </button>
+    <div class="card"  data-ng-if="rangingRegions.length">
+      <div class="item item-divider">
+        getRangedRegions()
+      </div>
+      <div class="item item-text-wrap">
+        <ul class="list">
+          <li class="item" data-ng-repeat="region in rangingRegions">
+            identifier: {{region.identifier}}<br />
+            uuid: {{region.uuid}}<br />
+            major: {{region.major}}<br />
+            minor: {{region.minor}}<br />
+            notifyEntryStateOnDisplay: {{region.notifyEntryStateOnDisplay}}<br />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,35 @@
+<ion-view view-title="Monitoring">
+  <ion-content>
+    <button data-ng-click="startMonitoringForRegion()" class="button button-block button-calm">
+      startMonitoringForRegion
+    </button>
+    <button data-ng-click="stopMonitoringForRegion()" class="button button-block button-balanced">
+      stopMonitoringForRegion
+    </button>
+    <button data-ng-click="requestStateForRegion()" class="button button-block button-energized">
+      requestStateForRegion
+    </button>
+    <button data-ng-click="getMonitoredRegions()" class="button button-block button-assertive">
+      getMonitoredRegions
+    </button>
+    <button data-ng-click="isMonitoringAvailableForClass()" class="button button-block button-royal">
+      isMonitoringAvailableForClass
+    </button>
+    <div class="card" data-ng-if="monitoringsRegions.length">
+      <div class="item item-divider">
+        getMonitoredRegions()
+      </div>
+      <div class="item item-text-wrap">
+        <ul class="list">
+          <li class="item" data-ng-repeat="region in monitoringsRegions">
+            identifier: {{region.identifier}}<br />
+            uuid: {{region.uuid}}<br />
+            major: {{region.major}}<br />
+            minor: {{region.minor}}<br />
+            notifyEntryStateOnDisplay: {{region.notifyEntryStateOnDisplay}}<br />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

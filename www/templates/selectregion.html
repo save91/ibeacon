@@ -1,0 +1,8 @@
+<label class="item item-input item-select">
+  <div class="input-label">Region</div>
+  <select data-ng-model="data.select">
+    <option data-ng-repeat="region in regions" value="{{$index}}">
+      {{region.name}}
+    </option>
+  </select>
+</label>
