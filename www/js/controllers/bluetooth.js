@@ -1,6 +1,9 @@
 angular.module('ibeacon.controllers.bluetooth', [])
 
 .controller('BluetoothCtrl', function($scope, $ionicPopup, Beacon, $cordovaToast) {
+  $scope.log = {
+    didChangeAuthorizationStatus: ""
+  };
   $scope.isBluetoothEnabled = function() {
     Beacon.isBluetoothEnabled()
     .then(function(res) {
@@ -26,4 +29,8 @@ angular.module('ibeacon.controllers.bluetooth', [])
       $cordovaToast.showShortBottom(res.data);
     });
   };
-})
+  Beacon.setCallbackDidChangeAuthorizationStatus(function(res) {
+    $scope.log.didChangeAuthorizationStatus += '-----------------' + '\n';
+    $scope.log.didChangeAuthorizationStatus += JSON.stringify(res) + '\n';
+  });
+});

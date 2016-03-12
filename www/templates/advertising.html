@@ -9,5 +9,29 @@
     <button data-ng-click="isAdvertising()" class="button button-block button-energized">
       isAdvertising
     </button>
+    <div class="card">
+      <div class="item item-divider">
+        LOG peripheralManagerDidStartAdvertising
+      </div>
+      <div class="item item-text-wrap">
+        <ul class="list">
+          <li class="item">
+            {{log.peripheralManagerDidStartAdvertising}}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="item item-divider">
+        LOG peripheralManagerDidUpdateState
+      </div>
+      <div class="item item-text-wrap">
+        <ul class="list">
+          <li class="item">
+            {{log.peripheralManagerDidUpdateState}}
+          </li>
+        </ul>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

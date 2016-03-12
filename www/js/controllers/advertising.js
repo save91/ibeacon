@@ -4,7 +4,11 @@ angular.module('ibeacon.controllers.advertising', [])
   $scope.regions = Beacon.regions;
   $scope.data = {
     select: "0",
-    measuredPower: "59"
+    measuredPower: "-59"
+  };
+  $scope.log = {
+    peripheralManagerDidStartAdvertising: "",
+    peripheralManagerDidUpdateState: ""
   };
   $scope.showConfirm = function(title) {
     var confirmPopup = $ionicPopup.confirm({
@@ -58,4 +62,12 @@ angular.module('ibeacon.controllers.advertising', [])
       );
     });
   };
-})
+  Beacon.setCallbackPeripheralManagerDidStartAdvertising(function(res) {
+    $scope.log.peripheralManagerDidStartAdvertising += '-----------------' + '\n';
+    $scope.log.peripheralManagerDidStartAdvertising += JSON.stringify(res) + '\n';
+  });
+  Beacon.setCallbackPeripheralManagerDidUpdateState(function(res) {
+    $scope.log.peripheralManagerDidUpdateState += '-----------------' + '\n';
+    $scope.log.peripheralManagerDidUpdateState += JSON.stringify(res) + '\n';
+  });
+});

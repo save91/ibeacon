@@ -6,6 +6,9 @@ angular.module('ibeacon.controllers.ranging', [])
     $scope.data = {
       select: "0"
     };
+    $scope.log = {
+      didRangeBeaconsInRegion: ""
+    };
     // A confirm dialog
     $scope.showConfirm = function(title) {
       var confirmPopup = $ionicPopup.confirm({
@@ -32,7 +35,7 @@ angular.module('ibeacon.controllers.ranging', [])
           })
         }
       });
-    }
+    };
     $scope.stopRangingBeaconsInRegion = function() {
       $scope.showConfirm("stopRangingBeaconsInRegion").then(function(res) {
         if(res) {
@@ -49,7 +52,7 @@ angular.module('ibeacon.controllers.ranging', [])
           })
         }
       });
-    }
+    };
     $scope.getRangedRegions = function() {
       Beacon.getRangedRegions().then(
         function(res) {
@@ -63,7 +66,7 @@ angular.module('ibeacon.controllers.ranging', [])
           }
         );
       });
-    }
+    };
     $scope.isRangingAvailable = function() {
       Beacon.isRangingAvailable().then(
         function(res) {
@@ -76,5 +79,9 @@ angular.module('ibeacon.controllers.ranging', [])
           }
         );
       });
-    }
-  })
+    };
+    Beacon.setCallbackDidRangeBeaconsInRegion(function(res) {
+      $scope.log.didRangeBeaconsInRegion += '-----------------' + '\n';
+      $scope.log.didRangeBeaconsInRegion += JSON.stringify(res) + '\n';
+    });
+  });

@@ -6,7 +6,12 @@ angular.module('ibeacon.controllers.monitoring', [])
   $scope.data = {
     select: "0"
   };
-
+  $scope.log = {
+    didDetermineStateForRegion: "",
+    didStartMonitoringForRegion: "",
+    didEnterRegion: "",
+    didExitRegion: ""
+  };
   var callbackditest = function(data) {
     console.log(data);
   };
@@ -37,7 +42,7 @@ angular.module('ibeacon.controllers.monitoring', [])
         })
       }
     });
-  }
+  };
   $scope.stopMonitoringForRegion = function() {
     $scope.showConfirm("stopMonitoringForRegion").then(function(res) {
       if(res) {
@@ -54,7 +59,7 @@ angular.module('ibeacon.controllers.monitoring', [])
         })
       }
     });
-  }
+  };
   $scope.requestStateForRegion = function() {
     $scope.showConfirm("requestStateForRegion").then(function(res) {
       if(res) {
@@ -74,7 +79,7 @@ angular.module('ibeacon.controllers.monitoring', [])
         })
       }
     });
-  }
+  };
   $scope.getMonitoredRegions = function() {
     Beacon.getMonitoredRegions().then(
       function(res) {
@@ -86,26 +91,43 @@ angular.module('ibeacon.controllers.monitoring', [])
           title: 'getMonitoredRegions',
           template: res
         });
-      });
-    }
-    $scope.isMonitoringAvailableForClass = function() {
-      $scope.showConfirm("isMonitoringAvailableForClass").then(function(res) {
-        if(res) {
-          Beacon.isMonitoringAvailableForClass($scope.data.select)
-          .then(function(res) {
-            var risp = "no";
-            if(res) {
-              risp = "si";
-            }
-            $cordovaToast.showShortBottom("isMonitoringAvailableForClass " + $scope.regions[$scope.data.select].name + " = " +risp);
-          }, function(res) {
-            $ionicPopup.alert({
-              title: 'isMonitoringAvailableForClass',
-              template: res
-            });
-            //Manual request for monitoring update is not supported on Android
-          })
-        }
-      });
-    }
-  })
+      }
+    );
+  };
+  $scope.isMonitoringAvailableForClass = function() {
+    $scope.showConfirm("isMonitoringAvailableForClass").then(function(res) {
+      if(res) {
+        Beacon.isMonitoringAvailableForClass($scope.data.select)
+        .then(function(res) {
+          var risp = "no";
+          if(res) {
+            risp = "si";
+          }
+          $cordovaToast.showShortBottom("isMonitoringAvailableForClass " + $scope.regions[$scope.data.select].name + " = " +risp);
+        }, function(res) {
+          $ionicPopup.alert({
+            title: 'isMonitoringAvailableForClass',
+            template: res
+          });
+          //Manual request for monitoring update is not supported on Android
+        })
+      };
+    });
+  };
+  Beacon.setCallbackDidDetermineStateForRegion(function(res) {
+    $scope.log.didDetermineStateForRegion += '-----------------' + '\n';
+    $scope.log.didDetermineStateForRegion += JSON.stringify(res) + '\n';
+  });
+  Beacon.setCallbackDidStartMonitoringForRegion(function(res) {
+    $scope.log.didStartMonitoringForRegion += '-----------------' + '\n';
+    $scope.log.didStartMonitoringForRegion += JSON.stringify(res) + '\n';
+  });
+  Beacon.setCallbackDidEnterRegion(function(res) {
+    $scope.log.didEnterRegion += '-----------------' + '\n';
+    $scope.log.didEnterRegion += JSON.stringify(res) + '\n';
+  });
+  Beacon.setCallbackDidExitRegion(function(res) {
+    $scope.log.didExitRegion += '-----------------' + '\n';
+    $scope.log.didExitRegion += JSON.stringify(res) + '\n';
+  });
+});
