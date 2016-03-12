@@ -4,8 +4,7 @@ angular.module('ibeacon.controllers.authorization', [])
     $scope.getAuthorizationStatus = function() {
       Beacon.getAuthorizationStatus().then(
         function(res) {
-          $scope.regions = res;
-          $cordovaToast.showShortBottom("getAuthorizationStatus " + res);
+          $cordovaToast.showShortBottom(res.authorizationStatus);
         },
         function(res) {
           $ionicPopup.alert({
@@ -18,7 +17,6 @@ angular.module('ibeacon.controllers.authorization', [])
     $scope.requestWhenInUseAuthorization = function() {
       Beacon.requestWhenInUseAuthorization().then(
         function(res) {
-          $scope.regions = res;
           $cordovaToast.showShortBottom("requestWhenInUseAuthorization " + res);
         },
         function(res) {
@@ -32,7 +30,6 @@ angular.module('ibeacon.controllers.authorization', [])
     $scope.requestAlwaysAuthorization = function() {
       Beacon.requestAlwaysAuthorization().then(
         function(res) {
-          $scope.regions = res;
           $cordovaToast.showShortBottom("requestAlwaysAuthorization " + res);
         },
         function(res) {

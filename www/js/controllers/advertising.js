@@ -35,7 +35,6 @@ angular.module('ibeacon.controllers.advertising', [])
   $scope.stopAdvertising = function() {
     Beacon.stopAdvertising().then(
       function(res) {
-        $scope.regions = res;
         $cordovaToast.showShortBottom("stopAdvertising " + res);
       },
       function(res) {
@@ -49,7 +48,6 @@ angular.module('ibeacon.controllers.advertising', [])
   $scope.isAdvertising = function() {
     Beacon.isAdvertising().then(
       function(res) {
-        $scope.regions = res;
         $cordovaToast.showShortBottom("isAdvertising " + res);
       },
       function(res) {

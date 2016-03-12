@@ -67,7 +67,6 @@ angular.module('ibeacon.controllers.ranging', [])
     $scope.isRangingAvailable = function() {
       Beacon.isRangingAvailable().then(
         function(res) {
-          $scope.regions = res;
           $cordovaToast.showShortBottom("isRangingAvailable " + res);
         },
         function(res) {

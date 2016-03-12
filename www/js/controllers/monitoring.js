@@ -8,8 +8,7 @@ angular.module('ibeacon.controllers.monitoring', [])
   };
 
   var callbackditest = function(data) {
-    debugger;
-    console.log("CALLBACK");
+    console.log(data);
   };
   Beacon.setCallbackDidStartMonitoringForRegion(callbackditest);
   // A confirm dialog
