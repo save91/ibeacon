@@ -77,48 +77,58 @@ angular.module('ibeacon.services.beacon',[])
     Beacon.isAdvertising = function() {
       return $cordovaBeacon.isAdvertising();
     };
+    //Events
+    //Monitorings
+    Beacon.setCallbackDidDetermineStateForRegion = function(callback) {
+      $cordovaBeacon.setCallbackDidDetermineStateForRegion(callback);
+    };
+    $rootScope.$on("$cordovaBeacon:didDetermineStateForRegion\n", function(event, pluginResult) {
+      console.log("didDetermineStateForRegion\n" + JSON.stringify(pluginResult));
+    });
     Beacon.setCallbackDidStartMonitoringForRegion = function(callback) {
       $cordovaBeacon.setCallbackDidStartMonitoringForRegion(callback);
     };
-    $rootScope.$on("$cordovaBeacon:didDetermineStateForRegion", function(event, pluginResult, Devices) {
-      console.log("--------------------------");
-      console.log("didDetermineStateForRegion");
-      console.log(JSON.stringify(pluginResult));
+    $rootScope.$on("$cordovaBeacon:didStartMonitoringForRegion", function(event, pluginResult) {
+      console.log("didStartMonitoringForRegion\n" + JSON.stringify(pluginResult));
     });
-    $rootScope.$on("$cordovaBeacon:didStartMonitoringForRegion", function(event, pluginResult, Devices) {
-      console.log("--------------------------");
-      console.log("didStartMonitoringForRegion");
-      console.log(JSON.stringify(pluginResult));
+    Beacon.setCallbackDidEnterRegion = function(callback) {
+      $cordovaBeacon.setCallbackDidEnterRegion(callback);
+    };
+    $rootScope.$on("$cordovaBeacon:didEnterRegion", function(event, pluginResult) {
+      console.log("didEnterRegion\n" + JSON.stringify(pluginResult));
     });
-    $rootScope.$on("$cordovaBeacon:didEnterRegion", function(event, pluginResult, Devices) {
-      console.log("--------------------------");
-      console.log("didEnterRegion");
-      console.log(JSON.stringify(pluginResult));
+    Beacon.setCallbackDidExitRegion = function(callback) {
+      $cordovaBeacon.setCallbackDidExitRegion(callback);
+    };
+    $rootScope.$on("$cordovaBeacon:didExitRegion", function(event, pluginResult) {
+      console.log("didExitRegion\n" + JSON.stringify(pluginResult));
     });
-    $rootScope.$on("$cordovaBeacon:didExitRegion", function(event, pluginResult, Devices) {
-      console.log("--------------------------");
-      console.log("didExitRegion");
-      console.log(JSON.stringify(pluginResult));
+    //Rangings
+    Beacon.setCallbackDidRangeBeaconsInRegion = function(callback) {
+      $cordovaBeacon.setCallbackDidRangeBeaconsInRegion(callback);
+    };
+    $rootScope.$on("$cordovaBeacon:didRangeBeaconsInRegion", function(event, pluginResult) {
+      console.log("didRangeBeaconsInRegion\n" + JSON.stringify(pluginResult));
     });
-    $rootScope.$on("$cordovaBeacon:didRangeBeaconsInRegion", function(event, pluginResult, Devices) {
-      console.log("--------------------------");
-      console.log("didRangeBeaconsInRegion");
-      console.log(JSON.stringify(pluginResult));
+    //Advertisings
+    Beacon.setCallbackPeripheralManagerDidStartAdvertising = function(callback) {
+      $cordovaBeacon.setCallbackPeripheralManagerDidStartAdvertising(callback);
+    };
+    $rootScope.$on("$cordovaBeacon:peripheralManagerDidStartAdvertising", function(event, pluginResult) {
+      console.log("peripheralManagerDidStartAdvertising\n" + JSON.stringify(pluginResult));
     });
-    $rootScope.$on("$cordovaBeacon:peripheralManagerDidStartAdvertising", function(event, pluginResult, Devices) {
-      console.log("--------------------------");
-      console.log("peripheralManagerDidStartAdvertising");
-      console.log(JSON.stringify(pluginResult));
+    Beacon.setCallbackPeripheralManagerDidUpdateState = function(callback) {
+      $cordovaBeacon.setCallbackPeripheralManagerDidUpdateState(callback);
+    };
+    $rootScope.$on("$cordovaBeacon:peripheralManagerDidUpdateState", function(event, pluginResult) {
+      console.log("peripheralManagerDidUpdateState\n" + JSON.stringify(pluginResult));
     });
-    $rootScope.$on("$cordovaBeacon:peripheralManagerDidUpdateState", function(event, pluginResult, Devices) {
-      console.log("--------------------------");
-      console.log("peripheralManagerDidUpdateState");
-      console.log(JSON.stringify(pluginResult));
-    });
-    $rootScope.$on("$cordovaBeacon:didChangeAuthorizationStatus", function(event, pluginResult, Devices) {
-      console.log("--------------------------");
-      console.log("didChangeAuthorizationStatus");
-      console.log(JSON.stringify(pluginResult));
+    //Bluetooth and authorization
+    Beacon.setCallbackDidChangeAuthorizationStatus = function(callback) {
+      $cordovaBeacon.setCallbackDidChangeAuthorizationStatus(callback);
+    };
+    $rootScope.$on("$cordovaBeacon:didChangeAuthorizationStatus", function(event, pluginResult) {
+      console.log("didChangeAuthorizationStatus\n" + JSON.stringify(pluginResult));
     });
   });
   return Beacon;
