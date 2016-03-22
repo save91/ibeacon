@@ -18,7 +18,7 @@ angular.module('ibeacon.controllers.bluetooth', [])
     .then(function(res) {
       $cordovaToast.showShortBottom("Abilitato");
     },function(res) {
-      $cordovaToast.showShortBottom(res.data);
+      $cordovaToast.showShortBottom("Errore");
     });
   };
   $scope.disableBluetooth = function() {
@@ -26,7 +26,7 @@ angular.module('ibeacon.controllers.bluetooth', [])
     .then(function(res) {
       $cordovaToast.showShortBottom("Disabilitato");
     },function(res) {
-      $cordovaToast.showShortBottom(res.data);
+      $cordovaToast.showShortBottom("Errore");
     });
   };
   Beacon.setCallbackDidChangeAuthorizationStatus(function(res) {

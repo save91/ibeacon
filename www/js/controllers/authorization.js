@@ -4,6 +4,7 @@ angular.module('ibeacon.controllers.authorization', [])
     $scope.log = {
       didChangeAuthorizationStatus: ""
     };
+
     $scope.getAuthorizationStatus = function() {
       Beacon.getAuthorizationStatus().then(
         function(res) {
@@ -17,6 +18,7 @@ angular.module('ibeacon.controllers.authorization', [])
         );
       });
     };
+
     $scope.requestWhenInUseAuthorization = function() {
       Beacon.requestWhenInUseAuthorization().then(
         function(res) {
@@ -30,6 +32,7 @@ angular.module('ibeacon.controllers.authorization', [])
         );
       });
     };
+
     $scope.requestAlwaysAuthorization = function() {
       Beacon.requestAlwaysAuthorization().then(
         function(res) {
@@ -43,6 +46,7 @@ angular.module('ibeacon.controllers.authorization', [])
         );
       });
     };
+
     Beacon.setCallbackDidChangeAuthorizationStatus(function(res) {
       $scope.log.didChangeAuthorizationStatus += '-----------------' + '\n';
       $scope.log.didChangeAuthorizationStatus += JSON.stringify(res) + '\n';

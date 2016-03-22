@@ -32,7 +32,7 @@ angular.module('ibeacon.controllers.monitoring', [])
         Beacon.startMonitoringForRegion($scope.data.select)
         .then(function(res) {
           if(res === "OK") {
-            $cordovaToast.showShortBottom("startMonitoringForRegion " + $scope.regions[$scope.data.select].name);
+            $cordovaToast.showShortBottom("startMonitoringForRegion " + $scope.regions[$scope.data.select].identifier);
           }
         },function(res) {
           $ionicPopup.alert({
@@ -49,7 +49,7 @@ angular.module('ibeacon.controllers.monitoring', [])
         Beacon.stopMonitoringForRegion($scope.data.select)
         .then(function(res) {
           if(res === "OK") {
-            $cordovaToast.showShortBottom("stopMonitoringForRegion " + $scope.regions[$scope.data.select].name);
+            $cordovaToast.showShortBottom("stopMonitoringForRegion " + $scope.regions[$scope.data.select].identifier);
           }
         }, function(res) {
           $ionicPopup.alert({

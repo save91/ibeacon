@@ -25,7 +25,7 @@ angular.module('ibeacon.controllers.ranging', [])
           Beacon.startRangingBeaconsInRegion($scope.data.select)
           .then(function(res) {
             if(res === "OK") {
-              $cordovaToast.showShortBottom("startRangingBeaconsInRegion " + $scope.regions[$scope.data.select].name);
+              $cordovaToast.showShortBottom("startRangingBeaconsInRegion " + $scope.regions[$scope.data.select].identifier);
             }
           },function(res) {
             $ionicPopup.alert({
@@ -42,7 +42,7 @@ angular.module('ibeacon.controllers.ranging', [])
           Beacon.stopRangingBeaconsInRegion($scope.data.select)
           .then(function(res) {
             if(res === "OK") {
-              $cordovaToast.showShortBottom("stopRangingBeaconsInRegion " + $scope.regions[$scope.data.select].name);
+              $cordovaToast.showShortBottom("stopRangingBeaconsInRegion " + $scope.regions[$scope.data.select].identifier);
             }
           },function(res) {
             $ionicPopup.alert({

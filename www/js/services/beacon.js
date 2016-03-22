@@ -3,7 +3,6 @@ angular.module('ibeacon.services.beacon',[])
 .factory('Beacon', function($cordovaBeacon, $rootScope, $ionicPlatform) {
   var Beacon = {
     region: {
-      name: "",
       identifier: "BlueUp",
       uuid: "ACFD065E-C3C0-11E3-9BBE-1A514932AC01",
       major: "0",
@@ -11,7 +10,6 @@ angular.module('ibeacon.services.beacon',[])
       notifyEntryStateOnDisplay: false
     },
     regions: [{
-      name: "e-xtrategy",
       identifier: "BlueUp",
       uuid: "ACFD065E-C3C0-11E3-9BBE-1A514932AC01",
       major: "0",
