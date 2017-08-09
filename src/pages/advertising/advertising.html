@@ -22,30 +22,4 @@
   <button (click)="stopAdvertising()" ion-button block>stop Advertising</button>
   <button (click)="isAdvertising()" ion-button block>is Advertising</button>
 
-  <ion-card>
-    <ion-card-header>
-      LOG peripheralManagerDidStartAdvertising
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <ion-item>
-          {{log?.peripheralManagerDidStartAdvertising}}
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      LOG peripheralManagerDidUpdateState
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <ion-item>
-          {{log?.peripheralManagerDidUpdateState}}
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
-
 </ion-content>

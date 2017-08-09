@@ -15,16 +15,16 @@ export class BeaconProvider {
   public region = {
     identifier: "BlueUp",
     uuid: "ACFD065E-C3C0-11E3-9BBE-1A514932AC01",
-    major: "0",
-    minor: "0",
+    major: 0,
+    minor: 0,
     notifyEntryStateOnDisplay: false
   };
 
   public regions = [{
     identifier: "BlueUp",
     uuid: "ACFD065E-C3C0-11E3-9BBE-1A514932AC01",
-    major: "0",
-    minor: "0",
+    major: 0,
+    minor: 0,
     notifyEntryStateOnDisplay: false
   }];
 
@@ -35,91 +35,62 @@ export class BeaconProvider {
   }
 
   public isBluetoothEnabled() {
-    return this.delegate.isBluetoothEnabled();
+    return this.ibeacon.isBluetoothEnabled();
   };
   public enableBluetooth() {
-    return this.delegate.enableBluetooth();
+    return this.ibeacon.enableBluetooth();
   };
   public disableBluetooth() {
-    return this.delegate.disableBluetooth();
+    return this.ibeacon.disableBluetooth();
   };
   public startMonitoringForRegion(number) {
-    return this.delegate.startMonitoringForRegion(this.createBeaconRegion(number));
+    return this.ibeacon.startMonitoringForRegion(this.createBeaconRegion(number));
   };
   public stopMonitoringForRegion(number) {
-    return this.delegate.stopMonitoringForRegion(this.createBeaconRegion(number));
+    return this.ibeacon.stopMonitoringForRegion(this.createBeaconRegion(number));
   };
   public requestStateForRegion(number) {
-    return this.delegate.requestStateForRegion(this.createBeaconRegion(number));
+    return this.ibeacon.requestStateForRegion(this.createBeaconRegion(number));
   };
   public getMonitoredRegions() {
-    return this.delegate.getMonitoredRegions();
+    return this.ibeacon.getMonitoredRegions();
   };
   public isMonitoringAvailableForClass(number) {
-    return this.delegate.isMonitoringAvailableForClass(this.createBeaconRegion(number));
+    return this.ibeacon.isMonitoringAvailableForClass(this.createBeaconRegion(number));
   };
   public startRangingBeaconsInRegion(number) {
-    return this.delegate.startRangingBeaconsInRegion(this.createBeaconRegion(number));
+    return this.ibeacon.startRangingBeaconsInRegion(this.createBeaconRegion(number));
   };
   public stopRangingBeaconsInRegion(number) {
-    return this.delegate.stopRangingBeaconsInRegion(this.createBeaconRegion(number));
+    return this.ibeacon.stopRangingBeaconsInRegion(this.createBeaconRegion(number));
   };
   public getRangedRegions() {
-    return this.delegate.getRangedRegions();
+    return this.ibeacon.getRangedRegions();
   };
   public isRangingAvailable() {
-    return this.delegate.isRangingAvailable();
+    return this.ibeacon.isRangingAvailable();
   };
   public getAuthorizationStatus() {
-    return this.delegate.getAuthorizationStatus();
+    return this.ibeacon.getAuthorizationStatus();
   };
   public requestWhenInUseAuthorization() {
-    return this.delegate.requestWhenInUseAuthorization();
+    return this.ibeacon.requestWhenInUseAuthorization();
   };
   public requestAlwaysAuthorization() {
-    return this.delegate.requestAlwaysAuthorization();
+    return this.ibeacon.requestAlwaysAuthorization();
   };
   public startAdvertising = function (number, measuredPower) {
-    return this.delegate.startAdvertising(this.createBeaconRegion(number), measuredPower);
+    return this.ibeacon.startAdvertising(this.createBeaconRegion(number), measuredPower);
   };
-  public stopAdvertising() {
-    return this.delegate.stopAdvertising();
+  public stopAdvertising(number) {
+    return this.ibeacon.stopAdvertising(this.createBeaconRegion(number));
   };
   public isAdvertising() {
-    return this.delegate.isAdvertising();
-  };
-  //Events
-  //Monitorings
-  public setCallbackDidDetermineStateForRegion(callback) {
-    this.delegate.setCallbackDidDetermineStateForRegion(callback);
-  };
-  public setCallbackDidStartMonitoringForRegion(callback) {
-    this.delegate.setCallbackDidStartMonitoringForRegion(callback);
-  };
-  public setCallbackDidEnterRegion(callback) {
-    this.delegate.setCallbackDidEnterRegion(callback);
-  };
-  public setCallbackDidExitRegion(callback) {
-    this.delegate.setCallbackDidExitRegion(callback);
-  };
-  //Rangings
-  public setCallbackDidRangeBeaconsInRegion(callback) {
-    this.delegate.setCallbackDidRangeBeaconsInRegion(callback);
-  };
-  //Advertisings
-  public setCallbackPeripheralManagerDidStartAdvertising(callback) {
-    this.delegate.setCallbackPeripheralManagerDidStartAdvertising(callback);
-  };
-  public setCallbackPeripheralManagerDidUpdateState(callback) {
-    this.delegate.setCallbackPeripheralManagerDidUpdateState(callback);
-  };
-  //Bluetooth and authorization
-  public setCallbackDidChangeAuthorizationStatus(callback) {
-    this.delegate.setCallbackDidChangeAuthorizationStatus(callback);
+    return this.ibeacon.isAdvertising();
   };
 
   private createBeaconRegion(number) {
-    return this.delegate.createBeaconRegion(this.regions[number].identifier, this.regions[number].uuid, this.regions[number].major, this.regions[number].minor, this.regions[number].notifyEntryStateOnDisplay);
+    return this.ibeacon.BeaconRegion(this.regions[number].identifier, this.regions[number].uuid, this.regions[number].major, this.regions[number].minor, this.regions[number].notifyEntryStateOnDisplay);
   }
 
 }
