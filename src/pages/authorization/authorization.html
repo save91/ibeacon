@@ -17,5 +17,21 @@
 
 
 <ion-content padding>
+  <button (click)="getAuthorizationStatus()" ion-button block>get Authorization Status</button>
+  <button (click)="requestWhenInUseAuthorization()" ion-button block>request When In Use Authorization</button>
+  <button (click)="requestAlwaysAuthorization()" ion-button block>request Always Authorization</button>
+
+  <ion-card>
+    <ion-card-header>
+      LOG didChangeAuthorizationStatus
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          {{log?.didChangeAuthorizationStatus}}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
