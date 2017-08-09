@@ -1,9 +1,9 @@
 {
   "name": "ibeacon",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
-  "private": true,
+  "version": "2.0.0",
+  "author": "Saverio Tosi",
+  "homepage": "https://www.extrategy.net/it/saverio-tosi/",
+  "private": false,
   "scripts": {
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
