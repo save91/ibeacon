@@ -30,15 +30,15 @@ export class AdvertisingPage {
     private alertCtrl: AlertController,
     private toastCtrl: ToastController) { }
 
-  ionViewDidLoad() { }
+  ionViewDidLoad() {
+
+  }
 
 
   public startAdvertising() {
     this.beacon.startAdvertising(this.data.select, this.data.measuredPower)
       .then((res) => {
-        if (res === "OK") {
-          this.showToast("startAdvertising " + this.regions[this.data.select].name);
-        }
+        this.showToast("startAdvertising " + this.regions[this.data.select].name);
       }, (res) => {
         this.showAlert('startAdvertising', res);
       })

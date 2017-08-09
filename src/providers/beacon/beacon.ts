@@ -79,7 +79,7 @@ export class BeaconProvider {
   public requestAlwaysAuthorization() {
     return this.ibeacon.requestAlwaysAuthorization();
   };
-  public startAdvertising = function (number, measuredPower) {
+  public startAdvertising(number, measuredPower) {
     return this.ibeacon.startAdvertising(this.createBeaconRegion(number), measuredPower);
   };
   public stopAdvertising(number) {
@@ -88,6 +88,10 @@ export class BeaconProvider {
   public isAdvertising() {
     return this.ibeacon.isAdvertising();
   };
+
+  public getDelegate() {
+    return this.delegate;
+  }
 
   private createBeaconRegion(number) {
     return this.ibeacon.BeaconRegion(this.regions[number].identifier, this.regions[number].uuid, this.regions[number].major, this.regions[number].minor, this.regions[number].notifyEntryStateOnDisplay);
