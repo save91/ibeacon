@@ -3,8 +3,12 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { BeaconRegionPage } from "../pages/beacon-region/beacon-region";
+import { BluetoothPage } from "../pages/bluetooth/bluetooth";
+import { MonitoringPage } from "../pages/monitoring/monitoring";
+import { RangingPage } from "../pages/ranging/ranging";
+import { AuthorizationPage } from "../pages/authorization/authorization";
+import { AdvertisingPage } from "../pages/advertising/advertising";
 
 @Component({
   templateUrl: 'app.html'
@@ -12,7 +16,7 @@ import { ListPage } from '../pages/list/list';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = BeaconRegionPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -21,8 +25,12 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'BeaconRegion', component: BeaconRegionPage },
+      { title: 'Bluetooth', component: BluetoothPage },
+      { title: 'Monitoring', component: MonitoringPage },
+      { title: 'Ranging', component: RangingPage },
+      { title: 'Authorization', component: AuthorizationPage },
+      { title: 'Advertising', component: AdvertisingPage }
     ];
 
   }

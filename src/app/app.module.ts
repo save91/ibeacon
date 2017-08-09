@@ -3,27 +3,34 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { BeaconRegionPageModule } from "../pages/beacon-region/beacon-region.module";
+import { BluetoothPageModule } from "../pages/bluetooth/bluetooth.module";
+import { MonitoringPageModule } from "../pages/monitoring/monitoring.module";
+import { RangingPageModule } from "../pages/ranging/ranging.module";
+import { AuthorizationPageModule } from "../pages/authorization/authorization.module";
+import { AdvertisingPageModule } from "../pages/advertising/advertising.module";
+
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage,
-    ListPage
+    MyApp
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    BeaconRegionPageModule,
+    BluetoothPageModule,
+    MonitoringPageModule,
+    RangingPageModule,
+    AuthorizationPageModule,
+    AdvertisingPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage,
-    ListPage
+    MyApp
   ],
   providers: [
     StatusBar,
