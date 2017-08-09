@@ -17,5 +17,39 @@
 
 
 <ion-content padding>
+  <button (click)="startRangingBeaconsInRegion()" ion-button block>start Ranging Beacons In Region</button>
+  <button (click)="stopRangingBeaconsInRegion()" ion-button block>stop Ranging Beacons In Region</button>
+  <button (click)="getRangedRegions()" ion-button block>get Ranged Regions</button>
+  <button (click)="isRangingAvailable()" ion-button block>is Ranging Available</button>
+
+  <ion-card *ngIf="rangingRegions?.length">
+    <ion-card-header>
+      getRangedRegions()
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let r of rangingRegions">
+          identifier: {{r.identifier}}<br />
+          uuid: {{r.uuid}}<br />
+          major: {{r.major}}<br />
+          minor: {{r.minor}}<br />
+          notifyEntryStateOnDisplay: {{r.notifyEntryStateOnDisplay}}<br />
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      LOG DidRangeBeaconsInRegion
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          {{log?.DidRangeBeaconsInRegion}}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>

@@ -17,5 +17,92 @@
 
 
 <ion-content padding>
+  <button (click)="startMonitoringForRegion()" ion-button block>start Monitoring For Region</button>
+  <button (click)="stopMonitoringForRegion()" ion-button block>stop Monitoring For Region</button>
+  <button (click)="requestStateForRegion()" ion-button block>request State For Region</button>
+  <button (click)="getMonitoredRegions()" ion-button block>get Monitored Regions</button>
+  <button (click)="isMonitoringAvailableForClass()" ion-button block>is Monitoring Available For Class</button>
+
+  <ion-card *ngIf="monitoringsRegions?.length">
+    <ion-card-header>
+      getMonitoredRegions()
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let r of monitoringsRegions">
+          identifier: {{r.identifier}}<br />
+          uuid: {{r.uuid}}<br />
+          major: {{r.major}}<br />
+          minor: {{r.minor}}<br />
+          notifyEntryStateOnDisplay: {{r.notifyEntryStateOnDisplay}}<br />
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      LOG didDetermineStateForRegion
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          {{log?.didDetermineStateForRegion}}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      LOG didDetermineStateForRegion
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          {{log?.didDetermineStateForRegion}}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      LOG didStartMonitoringForRegion
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          {{log?.didStartMonitoringForRegion}}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      LOG didEnterRegion
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          {{log?.didEnterRegion}}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      LOG didExitRegion
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          {{log?.didExitRegion}}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>

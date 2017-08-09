@@ -17,5 +17,21 @@
 
 
 <ion-content padding>
+  <button (click)="isBluetoothEnabled()" ion-button block>is Bluetooth Enabled</button>
+  <button (click)="enableBluetooth()" ion-button block>enable Bluetooth</button>
+  <button (click)="disableBluetooth()" ion-button block>disable Bluetooth</button>
+
+  <ion-card>
+    <ion-card-header>
+      LOG didChangeAuthorizationStatus
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          {{log?.didChangeAuthorizationStatus}}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
