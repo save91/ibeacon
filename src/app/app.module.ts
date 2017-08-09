@@ -12,6 +12,8 @@ import { MonitoringPageModule } from "../pages/monitoring/monitoring.module";
 import { RangingPageModule } from "../pages/ranging/ranging.module";
 import { AuthorizationPageModule } from "../pages/authorization/authorization.module";
 import { AdvertisingPageModule } from "../pages/advertising/advertising.module";
+import { BeaconProvider } from '../providers/beacon/beacon';
+import { IBeacon } from "@ionic-native/ibeacon";
 
 
 @NgModule({
@@ -34,8 +36,10 @@ import { AdvertisingPageModule } from "../pages/advertising/advertising.module";
   ],
   providers: [
     StatusBar,
+    IBeacon,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    BeaconProvider
   ]
 })
 export class AppModule {}
