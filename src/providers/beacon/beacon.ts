@@ -28,10 +28,8 @@ export class BeaconProvider {
     notifyEntryStateOnDisplay: false
   }];
 
-  private delegate;
 
   constructor(private ibeacon: IBeacon) {
-    this.delegate = this.ibeacon.Delegate();
   }
 
   public isBluetoothEnabled() {
@@ -90,7 +88,7 @@ export class BeaconProvider {
   };
 
   public getDelegate() {
-    return this.delegate;
+    return this.ibeacon.Delegate();
   }
 
   private createBeaconRegion(number) {
