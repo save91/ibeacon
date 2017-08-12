@@ -14,6 +14,7 @@ import { AuthorizationPageModule } from "../pages/authorization/authorization.mo
 import { AdvertisingPageModule } from "../pages/advertising/advertising.module";
 import { BeaconProvider } from '../providers/beacon/beacon';
 import { IBeacon } from "@ionic-native/ibeacon";
+import { ModalAggiungiPageModule } from "../pages/modal-aggiungi/modal-aggiungi.module";
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { IBeacon } from "@ionic-native/ibeacon";
     MonitoringPageModule,
     RangingPageModule,
     AuthorizationPageModule,
-    AdvertisingPageModule
+    AdvertisingPageModule,
+    ModalAggiungiPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
